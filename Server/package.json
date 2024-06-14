@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-learning",
+  "version": "0.0.0",
+  "description": "Learning things",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bhavu2412/NodeJs-Practice.git"
+  },
+  "author": "Bhavya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bhavu2412/NodeJs-Practice/issues"
+  },
+  "homepage": "https://github.com/Bhavu2412/NodeJs-Practice#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1",
+    "nodemon": "^3.1.3"
+  }
+}
