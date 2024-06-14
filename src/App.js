@@ -23,50 +23,58 @@ export default function App() {
       console.log("Geolocation not found in your browser");
     }
   }, []);
-  useEffect(() => {
-    axios
-      .post("http://localhost:8080/admin", {
-        name: data.name,
-        location: { latitude: data.latitude, longitude: data.longitude },
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [data]);
   function handleChange(event) {
     const { value } = event.target;
     setName(value);
   }
   function handleClick(event) {
-    setData((prevData) => ({
-      ...prevData,
-      name: namely,
-    }));
-    setRandomRotation(`${Math.random() * 3600}deg`);
-    setRotation(true);
+    if (namely !== "") {
+      setData((prevData) => ({
+        ...prevData,
+        name: namely,
+      }));
+      setRandomRotation(`${Math.random() * 3600}deg`);
+      setRotation(true);
+      axios
+        .post("http://localhost:8080/admin", {
+          name: data.name,
+          location: { latitude: data.latitude, longitude: data.longitude },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("Enter your name!");
+    }
   }
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
     <div className="main-container">
-      <h1>Welcome to the lotery system</h1>
-      <p>Submit your name and spin the wheel of luck</p>
+      <h1>Welcome to the lottery system</h1>
+      <p>Submit your name and spin the wheel of luck to test your luck</p>
       <input type="text" name="name" onChange={handleChange} />
       <button onClick={handleClick}>Submit</button>
-      <div
-        className="spinwheel"
-        style={{
-          "--random-rotation": randomRotation,
-          animation: rotation ? `spinwheel 5s` : "none",
-        }}
-      >
-        <div className="price"></div>
+      <div className="circle">
+        <p className="a">0</p>
+        <p className="b">10</p>
+        <p className="c">50</p>
+        <p className="d">30</p>
+        <p className="e">0</p>
+        <p className="f">0</p>
+        <p className="g">0</p>
+        <p className="h">70</p>
+        <div
+          className="spinwheel"
+          style={{
+            "--random-rotation": randomRotation,
+            animation: rotation ? `spinwheel 5s` : "none",
+          }}
+        >
+          <div className="price"></div>
+        </div>
       </div>
-      <p>This is a game and dosenot involve gambling play in limit</p>
     </div>
   );
 }

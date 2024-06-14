@@ -23,6 +23,50 @@
   width: 30px;
   border-radius: 50px;
 }
+.a {
+  position: relative;
+  top: -110px;
+  left: 220px;
+}
+.b {
+  position: relative;
+  top: 120px;
+  left: 210px;
+}
+.c {
+  position: relative;
+  bottom: 0px;
+  left: 305px;
+}
+.d {
+  position: relative;
+  top: -75px;
+  left: 80px;
+}
+.e {
+  position: relative;
+  top: 90px;
+  left: 70px;
+}
+.f {
+  position: relative;
+  top: 80px;
+  left: 230px;
+}
+.g {
+  position: relative;
+  top: -80px;
+  left: 210px;
+}
+.circle {
+  background-color: lightgreen;
+  height: 40%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
 button {
   border: 2px white;
   border-radius: 10px;
